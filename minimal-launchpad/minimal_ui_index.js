@@ -257,3 +257,11 @@ $(window).resize(function () {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => utilities.resizeTerminal(fitAddon), 300);
 });
+
+
+fetch('fw/version.txt')
+    .then(response => response.text())
+    .then(version => {
+        document.getElementById('version').textContent += version;
+    })
+    .catch(error => console.error('Error:', error));
